@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-class goodsType extends Component {
+class PayDetail extends Component {
       render() {
           return (
               <div className=''>
-              物品类型
+              PayDetail
               </div>
           )
       }
 }
-export default goodsType
+export default PayDetail

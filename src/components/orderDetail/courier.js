@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-class goodsType extends Component {
+class Courier extends Component {
       render() {
           return (
               <div className=''>
-              物品类型
+                物流详情
               </div>
           )
       }
 }
-export default goodsType
+export default Courier

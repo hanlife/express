@@ -17,7 +17,7 @@ class Home extends Component {
                     <Link to="/deliveryInfo">
                         <img src={home_J} alt="" className="img-mrg"/>
                     </Link>
-                    <Link to="/myExpress">
+                    <Link to="/order/dlj">
                         <img src={home_m} alt=""/>
                     </Link>
                 </div>
