@@ -1,9 +1,8 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-.my-list .spe .am-list-extra {
-  flex-basis: initial;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    max-width: 750px;
+    margin: 0 auto;
 }

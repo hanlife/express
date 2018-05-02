@@ -1,0 +1,14 @@
+.home_box {
+    width: 680px;
+    height: 100vh;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.home_box img {
+    width: 100%;
+}
+
+.img-mrg {
+    margin: 130px 0 10px
+}

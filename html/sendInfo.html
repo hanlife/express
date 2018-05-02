@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=0.5,maximum-scale=0.5,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>物流详情</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <!-- <script src="js/rem.js" charset="utf-8"></script> -->
+    <style>
+        body {
+            background-color: #2d4279;
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        .sendInfo_box {}
+
+        .logo {
+            width: 100%;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .logo img {
+            width: 414px;
+            height: 86px;
+            margin: 88px 0;
+        }
+
+        .form_warrper {
+            width: 680px;
+            margin: 0 auto;
+        }
+
+        .send_items {
+            background-color: #fff;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 30px;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+
+        .send_items:first-child {
+            margin-bottom: 40px;
+        }
+
+        .send_item {
+            font-size: 28px;
+            color: #999999;
+            height: 140px;
+            line-height: 140px;
+            position: relative;
+        }
+
+        .send_type {
+            height: 98px;
+            line-height: 98px;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+        }
+
+        .send_item_l {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 12px;
+            top: 20px;
+        }
+
+        .send_item:first-child .send_item_des {
+            height: 138px;
+            border-bottom: 2px solid #ededed;
+        }
+
+        .send_item_des {
+            margin-left: 100px;
+            text-align: center;
+            margin: 0 60px 0 120px;
+        }
+
+        .icon-right {
+            position: absolute;
+            top: 48px;
+            right: 40px;
+            display: inline-block;
+            width: 22px;
+            height: 44px;
+            background: url("images/icon-right.png") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .send_type_title {
+            margin: 0 13px;
+            font-size: 30px;
+            color: #666666;
+        }
+
+        .send_type_des {
+            text-align: center;
+            flex: 1;
+            color: #999999;
+            font-size: 28px;
+        }
+
+        .txt_hid {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .send_type_des.type_active {
+            color: #e87019;
+        }
+
+        .send_item .item_active {
+            color: #666666;
+        }
+        .send_agreement{
+            font-size: 28px;
+            color: #cccccc;
+            line-height: 88px;
+            margin-bottom: 60px;
+        }
+        .send_agreement a{
+            color: #e87019;
+        }
+        .send_submit {
+            width: 600px;
+            height: 88px;
+            line-height: 88px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .send_submit .btn {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background-color: transparent;
+            color: #fff;
+            background-color: #e87019;
+            border-radius: 88px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sendInfo_box">
+        <div class="logo">
+            <img src="images/img-logo.png" alt="">
+        </div>
+        <div class="form_warrper">
+            <div class="send_items">
+                <div class="send_item">
+                    <img src="images/icon-j.png" alt="" class="send_item_l">
+                    <p class="send_item_des txt_hid item_active">请输入寄件人信息请输入寄件人信息请输入寄件人信息请输入寄件人信息</p>
+                    <span class="icon-right"></span>
+                </div>
+                <div class="send_item">
+                    <img src="images/icon-s.png" alt="" class="send_item_l">
+                    <p class="send_item_des txt_hid">请输入寄件人信息</p>
+                    <span class="icon-right"></span>
+                </div>
+            </div>
+            <div class="send_items">
+                <div class="send_type">
+                    <span class="send_type_title">寄付方式</span>
+                    <span class="send_type_des">请选择寄付方式</span>
+                </div>
+            </div>
+            <div class="send_items">
+                <div class="send_type">
+                    <span class="send_type_title">物品类型</span>
+                    <span class="send_type_des type_active">文件*2</span>
+                </div>
+            </div>
+            <div class="send_items">
+                <div class="send_type">
+                    <span class="send_type_title">增值服务</span>
+                    <span class="send_type_des type_active">保值</span>
+                </div>
+            </div>
+            <div class="send_agreement">
+                <p></p>
+                <p>我同意
+                    <a href="">《xxxx》</a>
+                </p>
+            </div>
+            <div class="send_submit">
+                <button class="btn">下一步</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
