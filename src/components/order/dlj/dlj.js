@@ -91,7 +91,7 @@ class dlj extends Component {
             key={`${sectionID}-${rowID}`}
             style={{
             backgroundColor: '#F5F5F9',
-            height: 8,
+            height: 12,
             borderTop: '1px solid #ECECED',
             borderBottom: '1px solid #ECECED'
         }}/>);
@@ -101,7 +101,6 @@ class dlj extends Component {
                 index = data.length - 1;
             }
             const obj = data[index--];
-            console.log(obj)
             return (<OrderItem data={obj} key={index}/>);
         };
 

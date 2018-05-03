@@ -3,7 +3,6 @@ import {Checkbox} from 'antd-mobile';
 
 import icon_Arrow from '../../images/icon-arrow.png'
 
-const CheckboxItem = Checkbox.CheckboxItem;
 
 class OrderItem extends Component {
     onChange(id){
@@ -30,8 +29,8 @@ class OrderItem extends Component {
                         </div>
                     </div>
                     <div className="item_check">
-                        <CheckboxItem onChange={() => this.onChange(orderId)}>
-                        </CheckboxItem>
+                        <Checkbox onChange={() => this.onChange(orderId)}>
+                        </Checkbox>
                     </div>
                 </div>
             </div>

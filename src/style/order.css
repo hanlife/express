@@ -20,6 +20,10 @@
       border-bottom: 2px solid #E87019;
   }
 
+  .tab_item.tab_active a {
+      color: #E87019;
+  }
+
   .orderList {
       overflow: hidden;
       width: 340px;
@@ -29,7 +33,7 @@
   .orderItem {
       height: 110px;
       width: 100%;
-      margin-bottom: 6px;
+      /* margin-bottom: 6px; */
       background: rgba(255, 255, 255, 1);
       border-radius: 5px;
       position: relative;
@@ -37,10 +41,11 @@
 
   .item_check {
       position: absolute;
-      height: 44px;
-      width: 44px;
+      height: 22px;
+      width: 22px;
       top: 50%;
-      margin-top: -22px;
+      left: 10px;
+      margin-top: -10px;
       z-index: 9;
   }
 
