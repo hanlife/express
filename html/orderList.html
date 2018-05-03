@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>物流详情</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <!-- <script src="js/rem.js" charset="utf-8"></script> -->
+    <style>
+        body {
+            background-color: #2d4279;
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        .tabNav {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+            line-height: 98px;
+            font-size: 32px;
+            color: #fff;
+            position: relative;
+        }
+
+        .tabNav .tab_item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab_item.tab_active {
+            color: #E87019;
+            border-bottom: 4px solid #E87019;
+        }
+
+        .orderList {
+            overflow: hidden;
+            width: 680px;
+            margin: 0 auto;
+        }
+
+        .orderItem {
+            height: 220px;
+            width: 100%;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item_check{
+            float: left;
+            height: 220px;
+            margin-left: 25px;
+        }
+
+        .item_content {
+            width: 460px;
+            margin: 0 auto;
+        }
+
+        .item_time {
+            line-height: 60px;
+            font-size: 24px;
+            color: #666666;
+            background-color: #EDEDED;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .item-flex {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+        }
+
+        .item_person {
+            font-size: 38px;
+            color: #333333;
+            line-height: 68px;
+            margin-top: 20px;
+        }
+
+        .item-flex span {
+            flex: 1;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        span.icon_arrow img {
+            width: 102px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        span.font-red{
+            color: #FF3333;
+        }
+
+        .item_way {
+            font-size: 24px;
+            color: #666666;
+            line-height: 48px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="myExpress_box">
+        <div class="tabNav">
+            <div class="tab_item tab_active">待揽件</div>
+            <div class="tab_item">待付款</div>
+            <div class="tab_item">配送中</div>
+            <div class="tab_item">已签收</div>
+        </div>
+        <div class="orderList">
+            <div class="orderItem">
+                <div class="item_check"><input type="checkbox"></div>
+                <div class="item_content">
+                    <div class="item_time">下单时间 2018-03-16 12:30:30</div>
+                    <div class="item-flex item_person">
+                        <span>赵日天</span>
+                        <span class="icon_arrow">
+                            <img src="images/icon-arrow.png" alt="">
+                        </span>
+                        <span>赵日狗</span>
+                    </div>
+                    <div class="item-flex item_way">
+                        <span>宝安区</span>
+                        <span class="font-red">待揽件</span>
+                        <span>罗湖区</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

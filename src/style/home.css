@@ -1,5 +1,5 @@
 .home_box {
-    width: 680px;
+    width: 340px;
     height: 100vh;
     margin: 0 auto;
     font-size: 0;
@@ -10,5 +10,5 @@
 }
 
 .img-mrg {
-    margin: 130px 0 10px
+    margin: 65px 0 5px
 }

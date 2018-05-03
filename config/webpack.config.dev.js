@@ -188,7 +188,7 @@ module.exports = {
                       ],
                       flexbox: 'no-2009'
                     }),
-                    pxtorem({ rootValue: 100, propWhiteList: [] })
+                    // pxtorem({ rootValue: 100, propWhiteList: [] })
                   ]
                 }
               }

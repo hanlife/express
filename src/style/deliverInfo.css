@@ -5,40 +5,40 @@
 }
 
 .logo img {
-    width: 414px;
-    height: 86px;
-    margin: 88px 0;
+    width: 207px;
+    height: 43px;
+    margin: 44px 0;
 }
 
 .form_warrper {
-    width: 680px;
+    width: 340px;
     margin: 0 auto;
 }
 
 .send_items {
     background-color: #fff;
     width: 100%;
-    border-radius: 10px;
-    font-size: 30px;
+    border-radius: 5px;
+    font-size: 15px;
     color: #666666;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .send_items:first-child {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .send_item {
-    font-size: 28px;
+    font-size: 14px;
     color: #999999;
-    height: 140px;
-    line-height: 140px;
+    height: 70px;
+    line-height: 70px;
     position: relative;
 }
 
 .send_type {
-    height: 98px;
-    line-height: 98px;
+    height: 49px;
+    line-height: 49px;
     display: flex;
     display: -webkit-flex;
     flex-direction: row;
@@ -46,37 +46,37 @@
 
 .send_item_l {
     position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 12px;
-    top: 20px;
+    width: 50px;
+    height: 50px;
+    left: 6px;
+    top: 10px;
 }
 
 .send_item:first-child .send_item_des {
-    height: 138px;
-    border-bottom: 2px solid #ededed;
+    height: 69px;
+    border-bottom: 1px solid #ededed;
 }
 
 .send_item_des {
-    margin-left: 100px;
+    margin-left: 50px;
     text-align: center;
-    margin: 0 60px 0 120px;
+    margin: 0 30px 0 60px;
 }
 
 .icon-right {
     position: absolute;
-    top: 48px;
-    right: 40px;
+    top: 24px;
+    right: 20px;
     display: inline-block;
-    width: 22px;
-    height: 44px;
-    background: url(../images/icon-right.png) no-repeat;
+    width: 11px;
+    height: 22x;
+    background: url("../images/icon-right.png") no-repeat;
     background-size: 100% 100%;
 }
 
 .send_type_title {
-    margin: 0 13px;
-    font-size: 30px;
+    margin: 0 6px;
+    font-size: 16px;
     color: #666666;
 }
 
@@ -84,7 +84,7 @@
     text-align: center;
     flex: 1;
     color: #999999;
-    font-size: 28px;
+    font-size: 14px;
 }
 
 .txt_hid {
@@ -102,10 +102,10 @@
 }
 
 .send_agreement {
-    font-size: 28px;
+    font-size: 14px;
     color: #cccccc;
-    line-height: 88px;
-    margin-bottom: 60px;
+    line-height: 44px;
+    margin-bottom: 30px;
 }
 
 .send_agreement a {
@@ -113,12 +113,12 @@
 }
 
 .send_submit {
-    width: 600px;
-    height: 88px;
-    line-height: 88px;
+    width: 300px;
+    height:44px;
+    line-height: 44px;
     margin: 0 auto;
     text-align: center;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 .send_submit .btn {
@@ -128,5 +128,5 @@
     background-color: transparent;
     color: #fff;
     background-color: #e87019;
-    border-radius: 88px;
+    border-radius: 44px;
 }

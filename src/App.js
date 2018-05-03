@@ -11,6 +11,7 @@ import {createStore, applyMiddleware} from 'redux';
 import reducer from './reducer';
 //  import logo from './logo.svg';
 import './App.css';
+import './style/reset.css'
 
 // // redux 注入操作
 const middleware = [thunk];

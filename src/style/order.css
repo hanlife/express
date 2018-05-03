@@ -1,0 +1,96 @@
+  .tabNav {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+      line-height: 49px;
+      font-size: 16px;
+      color: #fff;
+      position: relative;
+      padding: 20px 0;
+  }
+
+  .tabNav .tab_item {
+      flex: 1;
+      text-align: center;
+      margin: 0 10px;
+  }
+
+  .tab_item.tab_active {
+      color: #E87019;
+      border-bottom: 2px solid #E87019;
+  }
+
+  .orderList {
+      overflow: hidden;
+      width: 340px;
+      margin: 0 auto;
+  }
+
+  .orderItem {
+      height: 110px;
+      width: 100%;
+      margin-bottom: 6px;
+      background: rgba(255, 255, 255, 1);
+      border-radius: 5px;
+      position: relative;
+  }
+
+  .item_check {
+      position: absolute;
+      height: 44px;
+      width: 44px;
+      top: 50%;
+      margin-top: -22px;
+      z-index: 9;
+  }
+
+  .item_content {
+      width: 230px;
+      margin: 0 auto;
+  }
+
+  .item_time {
+      line-height: 30px;
+      font-size: 14px;
+      color: #666666;
+      background-color: #EDEDED;
+      text-align: center;
+      border-radius: 0 0 5px 5px;
+  }
+
+  .item-flex {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+  }
+
+  .item_person {
+      font-size: 16px;
+      color: #333333;
+      line-height: 34px;
+      margin-top: 10px;
+  }
+
+  .item-flex span {
+      flex: 1;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+
+  span.icon_arrow img {
+      width: 51px;
+      height: 12px;
+      vertical-align: middle;
+  }
+
+  span.font-red {
+      color: #FF3333;
+  }
+
+  .item_way {
+      font-size: 12px;
+      color: #666666;
+      line-height: 24px;
+  }

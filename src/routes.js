@@ -4,7 +4,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import Home from './components/home/home'
 import deliveryInfo from './components/deliveryInfo/deliveryInfo'
-import writePage from './components/writePage/writePage'
+import WritePage from './components/writePage/writePage'
 import order from './components/order/order'
 
 import courier from './components/orderDetail/courier'
@@ -24,7 +24,7 @@ class CRouter extends Component {
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/deliveryInfo" component={deliveryInfo}/>
-                    <Route path="/writePage/:type" component={writePage}/>
+                    <Route path="/writePage/:type" component={WritePage}/>
                     <Route path='/order' component={order}></Route>
                     <Route path='/courier/:orderId' component={courier}></Route>
                     <Route path='/dfkDetail/:orderId' component={dfkDetail}></Route>

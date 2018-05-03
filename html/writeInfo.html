@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>物流详情</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <!-- <script src="js/rem.js" charset="utf-8"></script> -->
+    <style>
+        body {
+            background-color: #2d4279;
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        .info_box {
+            padding-top: 66px;
+        }
+
+        .address_warpper {
+            width: 680px;
+            height: 176px;
+
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .address_left {
+            float: left;
+            text-align: center;
+            font-size: 0;
+            width: 180px;
+            height: 176px;
+            display: table;
+            border-right: 2px solid #CCCCCC;
+        }
+
+        .address_left>div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .address_left .icon_card {
+            width: 80px;
+            height: 65px;
+        }
+
+        .address_left p {
+            font-size: 28px;
+            line-height: 46px;
+            color: rgba(232, 112, 25, 1);
+        }
+
+        .address_right {
+            margin-left: 180px;
+            text-align: center;
+            height: 176px;
+            width: 495px;
+            display: table;
+        }
+
+        .address_right>div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .input_address {
+            text-align: left;
+            font-size: 20px;
+            width: 400px;
+            border: 0;
+            background: transparent;
+            outline: none;
+            resize: none;
+        }
+
+        .address_tip {
+            text-align: center;
+            font-size: 28px;
+            color: #E87019;
+            margin: 40px 0 58px;
+        }
+
+        .icon_tip {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            vertical-align: middle;
+            margin-right: 10px;
+            background: url("images/icon-tip.png") no-repeat;
+        }
+
+        .address_from {
+            width: 680px;
+            margin: 0 auto;
+        }
+
+        .address_item {
+            position: relative;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 10px;
+            font-size: 0;
+            margin-bottom: 12px;
+        }
+
+        .address_item:last-child {
+            margin-bottom: 0;
+        }
+
+        .address_title {
+            display: inline-block;
+            color: #666666;
+            font-size: 32px;
+            line-height: 100px;
+            text-align: left;
+            width: 165px;
+            margin-left: 25px;
+            vertical-align: middle;
+        }
+
+        .address_name {
+            width: 370px;
+            margin: 0 100px 0 20px;
+            height: 88px;
+            line-height: 88px;
+            vertical-align: middle;
+            border: 0;
+            background-color: transparent;
+            font-size: 30px;
+        }
+
+        .form_icon {
+            display: inline-block;
+            position: absolute;
+        }
+
+        .icon_jname {
+            width: 53px;
+            height: 41px;
+            background: url("images/icon-jname.png") no-repeat;
+            right: 25px;
+            top: 50%;
+            margin-top: -20px;
+        }
+
+        .icon_address {
+            width: 38px;
+            height: 50px;
+            background: url("images/icon-address.png") no-repeat;
+            right: 25px;
+            top: 50%;
+            margin-top: -25px;
+        }
+
+        .btn_save {
+            width: 600px;
+            height: 88px;
+            margin: 215px auto 0;
+        }
+
+        .btn_save>button {
+            width: 100%;
+            height: 100%;
+            background: rgba(232, 112, 25, 1);
+            border-radius: 44px;
+            border: 0;
+            font-size: 32px;
+            color:#fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info_box">
+        <div class="address_warpper">
+            <div class="address_left">
+                <div>
+                    <img src="images/icon-card.png" alt="" class="icon_card">
+                    <p>传名片</p>
+                </div>
+            </div>
+            <div class="address_right">
+                <div>
+                    <textarea type="text" name="" id="" cols="40" rows="3" placeholder="请粘贴诸如“深圳市宝安区科技园北区 赵日天 23333333333”" class="input_address"></textarea>
+                </div>
+            </div>
+        </div>
+        <p class="address_tip">
+            <span class="icon_tip"></span>地址识别说明和示例</p>
+        <div class="address_from">
+            <div class="address_item">
+                <span class="address_title">姓名:</span>
+                <input type="text" placeholder="请输入寄件人姓名" class="address_name">
+                <span class="form_icon icon_jname"></span>
+            </div>
+            <div class="address_item">
+                <span class="address_title">手机:</span>
+                <input type="text" placeholder="请输入手机号码" class="address_name">
+            </div>
+            <div class="address_item">
+                <span class="address_title">省市区:</span>
+                <input type="text" placeholder="请输入寄件人姓名" class="address_name">
+                <span class="form_icon icon_address"></span>
+            </div>
+            <div class="address_item">
+                <span class="address_title">详细地址:</span>
+                <input type="text" placeholder="请输入寄件人姓名" class="address_name">
+            </div>
+            <div class="btn_save">
+                <button type="button">保存</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
