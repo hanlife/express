@@ -30,18 +30,6 @@ const data = [
     }
 ]
 
-const NUM_ROWS = 20;
-let pageIndex = 0;
-
-function genData(pIndex = 0) {
-    const dataArr = [];
-    for (let i = 0; i < NUM_ROWS; i++) {
-        dataArr.push(`row - ${ (pIndex * NUM_ROWS) + i}`);
-    }
-    console.log(dataArr)
-    return dataArr;
-}
-
 class dlj extends Component {
     constructor(props) {
         super(props);
@@ -70,12 +58,12 @@ class dlj extends Component {
        const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
 
         setTimeout(() => {
-            this.rData = genData();
+            this.rData = data.concat(data);
             this.setState({
                 dataSource: this
                     .state
                     .dataSource
-                    .cloneWithRows(genData()),
+                    .cloneWithRows(data.concat(data)),
                 height: hei,
                 refreshing: false,
                 isLoading: false
@@ -128,12 +116,12 @@ class dlj extends Component {
                     renderFooter={() => (
                     <div
                         style={{
-                        padding: 30,
+                        padding: 15,
                         textAlign: 'center'
                     }}>
                         {this.state.isLoading
                             ? 'Loading...'
-                            : 'Loaded'}
+                            : '全部加载'}
                     </div>
                 )}
                     renderRow={row}
