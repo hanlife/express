@@ -63,12 +63,12 @@ class dlj extends Component {
                 dataSource: this
                     .state
                     .dataSource
-                    .cloneWithRows(data.concat(data)),
+                    .cloneWithRows(data),
                 height: hei,
                 refreshing: false,
                 isLoading: false
             });
-        }, 1500);
+        }, 500);
     }
 
     onRefresh = () => {
@@ -83,7 +83,6 @@ class dlj extends Component {
         if (this.state.isLoading && !this.state.hasMore) {
             return;
         }
-        console.log('reach end', event);
         this.setState({isLoading: true});
     };
     render() {
@@ -101,6 +100,7 @@ class dlj extends Component {
                 index = data.length - 1;
             }
             const obj = data[index--];
+            console.log(rowData,sectionID,rowID)
             return (<OrderItem data={obj} key={index}/>);
         };
 
@@ -140,7 +140,7 @@ class dlj extends Component {
                     this.onRefresh
                 } />}
                     onEndReached={this.onEndReached}
-                    pageSize={5}></ListView>
+                    pageSize={1}></ListView>
             </div>
         )
     }

@@ -2,7 +2,7 @@ import axios from 'axios'
 import qs from 'qs'
 import * as config from './config'
 import {showAlert} from '../utils/index'
-
+import {Toast} from 'antd-mobile';
 
 // axios 配置
 axios.defaults.timeout = 5000
@@ -14,6 +14,9 @@ axios
     .interceptors
     .request
     .use((config) => {
+        Toast.loading('加载中...', 0, () => {
+            console.log('Load complete !!!');
+        }, true);
         if (config.method === 'post') {
             config.data = qs.stringify(config.data);
         }
@@ -28,12 +31,13 @@ axios
     .interceptors
     .response
     .use((res) => {
+        Toast.hide();
         // if (!res.data.success) {     alert(res.data.msg);     return
-        // Promise.reject(res); } return res;
-        // console.log("222",res)
+        // Promise.reject(res); } return res; console.log("222",res)
         return res;
     }, (error) => {
-        showAlert("网络异常");
+        Toast.hide();
+        Toast.offline("网络错误", 5, () => {}, true)
         return Promise.reject(error);
     });
 
@@ -51,4 +55,3 @@ export function fetch(url, params) {
             })
     })
 }
-

@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
+import {Checkbox} from 'antd-mobile';
+
+
 
 import '../../style/deliverInfo.css'
 
@@ -7,7 +10,21 @@ import logo from '../../images/img-logo.png'
 import icon_s from '../../images/icon-s.png'
 import icon_j from '../../images/icon-j.png'
 
+const AgreeItem = Checkbox.AgreeItem;
+
 class deliveryInfo extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            checkBox: false
+        }
+    }
+    checkData() {
+
+
+        this.props.history.push('/order/dlj')
+    }
+    componentWillMount() {}
     render() {
         return (
             <div className="deliverInfo_box">
@@ -50,13 +67,23 @@ class deliveryInfo extends Component {
                         </div>
                     </div>
                     <div className="send_agreement">
-                        <p></p>
-                        <p>我同意
+                        <AgreeItem
+                            data-seed="logId"
+                            onChange={() => {
+                            this.setState({
+                                checkBox: !this.state.checkBox
+                            })
+                        }}>
+                            我同意
                             <a href="">《xxxx》</a>
-                        </p>
+                        </AgreeItem>
                     </div>
                     <div className="send_submit">
-                        <button className="btn">下一步</button>
+                        <button
+                            className="btn"
+                            onClick={() => {
+                            this.checkData()
+                        }}>下一步</button>
                     </div>
                 </div>
             </div>
