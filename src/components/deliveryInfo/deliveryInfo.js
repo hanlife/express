@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {Checkbox} from 'antd-mobile';
 
 
-
 import '../../style/deliverInfo.css'
 
 import logo from '../../images/img-logo.png'
@@ -90,6 +89,5 @@ class deliveryInfo extends Component {
         );
     }
 }
-
 
 export default deliveryInfo

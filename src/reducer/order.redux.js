@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 
 // type
 const ORDER_DATA = 'ORDER_DATA';
