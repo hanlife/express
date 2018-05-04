@@ -3,7 +3,7 @@ import {Router, Route, Switch, Redirect} from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import Home from './components/home/home'
-import deliveryInfo from './components/deliveryInfo/deliveryInfo'
+import deliveryInfo from './containers/deliveryInfo/deliveryInfo'
 import WritePage from './components/writePage/writePage'
 import order from './components/order/order'
 

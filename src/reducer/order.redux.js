@@ -1,15 +1,16 @@
 import { combineReducers } from 'redux';
 
+// type
 const ORDER_DATA = 'ORDER_DATA';
 
-const receiveData = (data, category) => ({
+// action
+export const receiveData = (deliveryData) => ({
     type: ORDER_DATA,
-    data,
-    category
+    deliveryData,
 });
 
-
-const orderData = (state = {}, action) => {
+// reducer
+export const orderInfo = (state = {}, action) => {
     switch (action.type) {
         case ORDER_DATA:
             return {
@@ -19,7 +20,3 @@ const orderData = (state = {}, action) => {
             return {...state};
     }
 };
-
-export default combineReducers({
-    orderData
-});

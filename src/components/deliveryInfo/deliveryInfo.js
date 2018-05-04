@@ -90,4 +90,6 @@ class deliveryInfo extends Component {
         );
     }
 }
+
+
 export default deliveryInfo
