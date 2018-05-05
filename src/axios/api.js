@@ -1,12 +1,10 @@
-import {fetch} from './index'
+import { fetch } from "./index";
 // const COURIER = '/cyy-app/courier/';
-const TX = '/';
+const TX = "/";
 
-export default {
-    /**
-     * 用户登录
-     */
-    test(params) {
-        return fetch(TX + 'test', params)
-    }
+/**
+ * 用户登录
+ */
+export function test(params) {
+  return fetch(TX + "test", params);
 }
