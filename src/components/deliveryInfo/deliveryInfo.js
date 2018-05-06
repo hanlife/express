@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { Checkbox } from "antd-mobile";
 import { connect } from "react-redux";
 
+import {showType} from '../../reducer/order.redux'
+
+import SendInfo from "./sendInfo";
+import ReceiveInfo from "./receiveInfo";
+import AppreciationType from "../deliveryInfoCmpt/appreciationType";
+import PayType from "../deliveryInfoCmpt/payType";
+import GoodsType from "../deliveryInfoCmpt/goodsType";
 
 import "../../style/deliverInfo.css";
 
@@ -12,25 +19,45 @@ import icon_j from "../../images/icon-j.png";
 
 const AgreeItem = Checkbox.AgreeItem;
 
-@connect(state => state.orderInfo)
+@connect(state => state.orderInfo,{showType})
 class deliveryInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkBox: false
+      checkBox: false,
     };
   }
   checkData() {
-    console.log(this.props)
+    console.log(this.props);
     // this.props.history.push("/order/dlj");
   }
   componentWillMount() {
     // console.log(this.props.orderInfo);
   }
   render() {
-    let sendData = this.props.sendData || false;
+    // 寄件人信息
+    // 收件人信息
+    // 寄付方式 1 物品类型 3 支付方式 2
+    let sendData = this.props.sendData || false;      
     let receiveData = this.props.receiveData || false;
-    console.log(receiveData);
+    let type = this.props.type || 0
+    let cmp;
+    switch (type) {
+      case "1":
+        cmp = <AppreciationType />;
+        break;
+      case "2":
+        cmp = <PayType />;
+        break;
+      case "3":
+        cmp = <GoodsType />;
+        break;
+      default:
+        cmp = null;
+        break;
+    }
+    console.log(cmp)
+
     return (
       <div className="deliverInfo_box">
         <div className="logo">
@@ -41,26 +68,14 @@ class deliveryInfo extends Component {
             <div className="send_item">
               <img src={icon_j} alt="" className="send_item_l" />
               <Link to="/writePage/a">
-                {sendData ? (
-                  <p className="send_item_des txt_hid item_active">
-                    {sendData.name}
-                  </p>
-                ) : (
-                  <p className="send_item_des">请输入寄件人信息</p>
-                )}
+                <SendInfo sendData={sendData} />
               </Link>
               <span className="icon-right" />
             </div>
             <div className="send_item">
               <img src={icon_s} alt="" className="send_item_l" />
               <Link to="/writePage/b">
-                {receiveData ? (
-                  <p className="send_item_des txt_hid item_active">
-                    {receiveData.name}
-                  </p>
-                ) : (
-                  <p className="send_item_des">请输入收件人信息</p>
-                )}
+                <ReceiveInfo receiveData={receiveData} />
               </Link>
               <span className="icon-right" />
             </div>
@@ -68,7 +83,9 @@ class deliveryInfo extends Component {
           <div className="send_items">
             <div className="send_type">
               <span className="send_type_title">寄付方式</span>
-              <span className="send_type_des">请选择寄付方式</span>
+              <span className="send_type_des" onClick={()=>{
+                this.props.showType('1')
+              }}>请选择寄付方式</span>
             </div>
           </div>
           <div className="send_items">
@@ -107,6 +124,7 @@ class deliveryInfo extends Component {
             </button>
           </div>
         </div>
+        <div>{cmp}</div>
       </div>
     );
   }

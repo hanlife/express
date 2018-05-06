@@ -99,3 +99,87 @@
       color: #666666;
       line-height: 24px;
   }
+
+  .actionsheet_box {
+      position: fixed;
+      background-color: #fff;
+      overflow: hidden;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+  }
+
+  .actionsheet_bg{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 998;
+}
+
+  .actionsheet_anm_in {
+      animation: into 0.35s linear 1;
+      -webkit-animation: into 0.35s linear 1;
+  }
+
+  @keyframes into {
+      from {
+          bottom: -100px;
+      }
+      to {
+          bottom: 0;
+      }
+  }
+
+  .actionsheet_header {
+      overflow: hidden;
+      border-bottom: 1px solid #EDEDED;
+  }
+
+  .actionsheet_header button {
+      margin: 0 20px;
+      height: 55px;
+      line-height: 55px;
+      font-size: 16px;
+      text-align: center;
+      background-color: transparent;
+  }
+
+  .actionsheet_header .actionsheet_close {
+      float: left;
+      color: #999999;
+  }
+
+  .actionsheet_header .actionsheet_conform {
+      float: right;
+      color: #E87019;
+  }
+
+  .jifu_type {
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: row;
+  }
+
+  .jifu_type div {
+      flex: 1;
+      text-align: center;
+  }
+
+  .jifu_type button {
+      margin: 32px 0;
+      width: 100px;
+      height: 40px;
+      border-radius: 40px;
+      background-color: #CCCCCC;
+      color: #fff;
+      line-height: 40px;
+      font-size: 16px;
+  }
+
+  .jifu_type button.active {
+      background-color: #E87019;
+  }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Toast } from 'antd-mobile';
 
 import { getReceiveData } from "../../reducer/order.redux";
 
@@ -19,6 +20,11 @@ class WritePage extends Component {
     });
   }
   submit() {
+    let { name, phone, shq, address } = this.state;
+    if (!name || !phone || !shq || !address) {
+      Toast.info("请填写完整！", 2, null, false);
+      return
+    }
     this.props.getReceiveData(this.state);
     this.props.history.push("/deliveryInfo");
   }

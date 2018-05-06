@@ -2,7 +2,7 @@ import { test } from "../axios/api";
 
 // type
 const ERROR = "ERROR";
-const SUCCESS = "SUCCESS";
+const SHOWTYPE = "SHOWTYPE";
 const ORDER_SEND = "ORDER_SEND";
 const ORDER_RECEIVE = "ORDER_RECEIVE";
 
@@ -41,6 +41,11 @@ export const orderInfo = (state = {}, action) => {
         ...state,
         msg: action.msg
       };
+    case SHOWTYPE:
+      return {
+        ...state,
+        type: action.showtype
+      };
     default:
       return { ...state };
   }
@@ -48,8 +53,9 @@ export const orderInfo = (state = {}, action) => {
 
 // action
 export function getReceiveData({ name, phone, shq, address, infoType }) {
-  if (!name || !phone || !shq || !address) {
-    return errMsg("请输入用户名或密码");
-  }
   return registerData({ name, phone, shq, address, infoType });
+}
+
+export function showType(showtype) {
+  return { type: SHOWTYPE, showtype: showtype || 0 };
 }

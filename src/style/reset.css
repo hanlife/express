@@ -211,3 +211,10 @@ textarea:-ms-input-placeholder {
 body {
     background-color: #ededed;
 }
+
+input,button{
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0
+}

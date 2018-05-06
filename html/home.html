@@ -25,12 +25,94 @@
             margin: 0 auto;
             font-size: 0;
         }
-        .home_box img{
+
+        .home_box img {
             width: 100%;
         }
 
         .img-mrg {
             margin: 130px 0 10px
+        }
+
+        .actionsheet_box {
+            position: fixed;
+            background-color: #fff;
+            overflow: hidden;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .actionsheet_anm_in{
+            animation: into 0.35s linear 1;
+            -webkit-animation: into 0.35s linear 1;
+        }
+
+        @keyframes into {
+            from{bottom: -100px;}
+            to{bottom: 0;}
+        }
+
+        .actionsheet_header {
+            overflow: hidden;
+            border-bottom: 1px solid #EDEDED;
+        }
+
+        .actionsheet_header button {
+            margin: 0 20px;
+            height: 55px;
+            line-height: 55px;
+            font-size: 16px;
+            text-align: center;
+            background-color: transparent;
+        }
+
+        .actionsheet_header .actionsheet_close {
+            float: left;
+            color: #999999;
+        }
+
+        .actionsheet_header .actionsheet_conform {
+            float: right;
+            color: #E87019;
+        }
+
+        .jifu_type {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+        }
+
+        .jifu_type div {
+            flex: 1;
+            text-align: center;
+        }
+
+        .jifu_type button {
+            margin: 32px 0;
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: #CCCCCC;
+            color: #fff;
+            line-height: 40px;
+            font-size: 16px;
+        }
+
+        .jifu_type button.active {
+            background-color: #E87019;
+
+        }
+
+        .actionsheet_bg{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .7);
+            z-index: 998;
         }
     </style>
 </head>
@@ -39,6 +121,24 @@
     <div class="home_box">
         <img src="images/img-home-j.png" alt="" class="img-mrg">
         <img src="images/img-home-m.png" alt="">
+    </div>
+    <div class="actionsheet_bg">
+    </div>
+    <div class="actionsheet_box actionsheet_anm_in">
+        <div class="actionsheet_header">
+            <button type="button" class="actionsheet_close">取消</button>
+            <button type="button" class="actionsheet_conform">确定</button>
+        </div>
+        <div class="actionsheet_body">
+            <div class="jifu_type">
+                <div>
+                    <button type="button" class="active">寄付</button>
+                </div>
+                <div>
+                    <button type="button">到付</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
