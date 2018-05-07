@@ -89,7 +89,9 @@
     border-radius: 5px;
     font-size: 0;
     margin-bottom: 12px;
+    text-align: left;
 }
+
 
 .address_item:last-child {
     margin-bottom: 0;
