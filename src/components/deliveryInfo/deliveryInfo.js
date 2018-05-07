@@ -1,12 +1,15 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Checkbox } from "antd-mobile";
-import { connect } from "react-redux";
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
+import {Checkbox} from "antd-mobile";
+import {connect} from "react-redux";
 
 import {showType} from '../../reducer/order.redux'
 
 import SendInfo from "./sendInfo";
 import ReceiveInfo from "./receiveInfo";
+import Insurance from './insurance'
+import FormatPayType from './paytype'
+import GoodsInfos from './goodsInfos'
 import AppreciationType from "../deliveryInfoCmpt/appreciationType";
 import PayType from "../deliveryInfoCmpt/payType";
 import GoodsType from "../deliveryInfoCmpt/goodsType";
@@ -19,12 +22,12 @@ import icon_j from "../../images/icon-j.png";
 
 const AgreeItem = Checkbox.AgreeItem;
 
-@connect(state => state.orderInfo,{showType})
+@connect(state => state.orderInfo, {showType})
 class deliveryInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkBox: false,
+      checkBox: false
     };
   }
   checkData() {
@@ -35,80 +38,99 @@ class deliveryInfo extends Component {
     // console.log(this.props.orderInfo);
   }
   render() {
-    // 寄件人信息
-    // 收件人信息
-    // 寄付方式 1 物品类型 3 支付方式 2
-    let sendData = this.props.sendData || false;      
-    let receiveData = this.props.receiveData || false;
-    let type = this.props.type || 0
+    // 寄件人信息 收件人信息 寄付方式  1 支付方式 2 物品类型 3  是否保值
+    let {
+      sendData,
+      receiveData,
+      type,
+      paytype,
+      insuranceFlag,
+      goodsInfos
+    } = this.props;
+
     let cmp;
     switch (type) {
       case "1":
-        cmp = <AppreciationType />;
+        cmp = <PayType/>;
         break;
       case "2":
-        cmp = <PayType />;
+        cmp = <GoodsType/>;
         break;
       case "3":
-        cmp = <GoodsType />;
+        cmp = <AppreciationType/>;
         break;
       default:
         cmp = null;
         break;
     }
-    console.log(cmp)
 
     return (
       <div className="deliverInfo_box">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo"/>
         </div>
         <div className="form_warrper">
           <div className="send_items">
             <div className="send_item">
-              <img src={icon_j} alt="" className="send_item_l" />
+              <img src={icon_j} alt="" className="send_item_l"/>
               <Link to="/writePage/a">
-                <SendInfo sendData={sendData} />
+                <SendInfo sendData={sendData}/>
               </Link>
-              <span className="icon-right" />
+              <span className="icon-right"/>
             </div>
             <div className="send_item">
-              <img src={icon_s} alt="" className="send_item_l" />
+              <img src={icon_s} alt="" className="send_item_l"/>
               <Link to="/writePage/b">
-                <ReceiveInfo receiveData={receiveData} />
+                <ReceiveInfo receiveData={receiveData}/>
               </Link>
-              <span className="icon-right" />
+              <span className="icon-right"/>
             </div>
           </div>
           <div className="send_items">
             <div className="send_type">
               <span className="send_type_title">寄付方式</span>
-              <span className="send_type_des" onClick={()=>{
-                this.props.showType('1')
-              }}>请选择寄付方式</span>
+              <span
+                className="send_type_des"
+                onClick={() => {
+                this
+                  .props
+                  .showType('1')
+              }}>
+                <FormatPayType paytype={paytype}/></span>
             </div>
           </div>
           <div className="send_items">
             <div className="send_type">
               <span className="send_type_title">物品类型</span>
-              <span className="send_type_des type_active">文件*2</span>
+              <span
+                className="send_type_des"
+                onClick={() => {
+                this
+                  .props
+                  .showType('2')
+              }}><GoodsInfos goodsInfos={goodsInfos}/></span>
             </div>
           </div>
           <div className="send_items">
             <div className="send_type">
               <span className="send_type_title">增值服务</span>
-              <span className="send_type_des type_active">保值</span>
+              <span
+                className="send_type_des"
+                onClick={() => {
+                this
+                  .props
+                  .showType('3')
+              }}><Insurance insuranceFlag={insuranceFlag}/></span>
             </div>
           </div>
           <div className="send_agreement">
             <AgreeItem
               data-seed="logId"
               onChange={() => {
-                this.setState({
-                  checkBox: !this.state.checkBox
-                });
-              }}
-            >
+              this.setState({
+                checkBox: !this.state.checkBox
+              });
+            }}>
               我同意
               <a href="">《xxxx》</a>
             </AgreeItem>
@@ -117,9 +139,8 @@ class deliveryInfo extends Component {
             <button
               className="btn"
               onClick={() => {
-                this.checkData();
-              }}
-            >
+              this.checkData();
+            }}>
               下一步
             </button>
           </div>

@@ -44,14 +44,18 @@
             z-index: 999;
         }
 
-        .actionsheet_anm_in{
+        .actionsheet_anm_in {
             animation: into 0.35s linear 1;
             -webkit-animation: into 0.35s linear 1;
         }
 
         @keyframes into {
-            from{bottom: -100px;}
-            to{bottom: 0;}
+            from {
+                bottom: -100px;
+            }
+            to {
+                bottom: 0;
+            }
         }
 
         .actionsheet_header {
@@ -102,10 +106,9 @@
 
         .jifu_type button.active {
             background-color: #E87019;
-
         }
 
-        .actionsheet_bg{
+        .actionsheet_bg {
             position: fixed;
             top: 0;
             bottom: 0;
@@ -113,6 +116,91 @@
             right: 0;
             background: rgba(0, 0, 0, .7);
             z-index: 998;
+        }
+
+        .goodsNum {
+            padding: 20px 0;
+            border-bottom: 1px solid #EDEDED;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+
+        .goods_title {
+            height: 40px;
+            line-height: 40px;
+            margin: 0 13px;
+            color: #999999;
+            font-size: 14px;
+        }
+
+        .goods_btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        .goods_btn span {
+            font-size: 0;
+            vertical-align: middle;
+        }
+
+        .goods_btn .icon {
+            /* border: 1px solid #333333; */
+        }
+
+        .goods_btn .icon_add {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: url('images/icon-add.png') no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .goods_btn .icon_reduce {
+            display: inline-block;
+            width: 16px;
+            height: 3px;
+            background: url('images/icon-reduce.png') no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .goods_btn .goods_num {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 40px;
+            background: rgba(237, 237, 237, 1);
+            border-radius: 20px;
+            text-align: center;
+            color: #E87019;
+            margin: 0 20px;
+        }
+        .goodsType {
+           
+        }
+        .goodstype_item{
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+            flex-wrap:wrap;
+            margin: 0 12px;
+            justify-content:space-between;
+        }
+
+        .goodstype_item button{
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: #CCCCCC;
+            color: #fff;
+            line-height: 40px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .goodstype_item button.active{
+            background-color: #E87019;
         }
     </style>
 </head>
@@ -130,12 +218,23 @@
             <button type="button" class="actionsheet_conform">确定</button>
         </div>
         <div class="actionsheet_body">
-            <div class="jifu_type">
-                <div>
-                    <button type="button" class="active">寄付</button>
+            <div class="goodsNum">
+                <div class="goods_title">物品数量</div>
+                <div class="goods_btn">
+                    <span class="icon icon_reduce"></span>
+                    <span class="goods_num">2</span>
+                    <span class="icon icon_add"></span>
                 </div>
-                <div>
-                    <button type="button">到付</button>
+            </div>
+            <div class="goodsType">
+                <p class="goods_title">物品类型</p>
+                <div class="goodstype_item">
+                    <button type="button" class="">文件</button>
+                    <button type="button">饰品</button>
+                    <button type="button">电子产品</button>
+                    <button type="button">生活用品</button>
+                    <button type="button">非常规物件</button>
+                    <button type="button" style="visibility: hidden;"></button>
                 </div>
             </div>
         </div>

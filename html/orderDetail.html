@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>物流详情</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <!-- <script src="js/rem.js" charset="utf-8"></script> -->
+    <style>
+        body {
+            background-color: #ffffff;
+            width: 375px;
+            margin: 0 auto;
+        }
+
+        .detail_box {
+            background-color: #ffffff;
+            padding-top: 34px;
+            color: #333333;
+        }
+
+        .detail_warpper {
+            font-size: 14px;
+            margin: 0 12px;
+            padding-left: 16px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ededed;
+        }
+
+        .detail_other {
+            background-color: #ededed;
+            padding-top: 5px;
+        }
+
+        .other_info {
+            background-color: #fff;
+            padding: 10px 12px 0 28px;
+            font-size: 14px;
+        }
+
+        .detail_box .detail_warpper:last-child {
+            border-bottom: 0;
+        }
+
+        .detail_title {
+            line-height: 36px;
+        }
+
+        .detail_item {
+            line-height: 28px;
+        }
+
+        .detail_item span:first-child {
+            color: #666666;
+        }
+
+        .detail_flex,
+        .other_flex {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+        }
+
+        .detail_flex .detail_flex_span {
+            flex: 1;
+        }
+
+        .other_info {
+            line-height: 28px;
+        }
+
+        .other_flex>div {
+            flex: 1;
+        }
+
+        .other_flex>div span:first-child {
+            color: #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="detail_box">
+        <div class="detail_warpper">
+            <p class="detail_title">寄件人</p>
+            <div class="detail_item">
+                <span>姓名：</span>
+                <span>赵日天</span>
+            </div>
+            <div class="detail_item">
+                <span>手机：</span>
+                <span>123745454545</span>
+            </div>
+            <div class="detail_item detail_flex">
+                <span>联系地址：</span>
+                <span class="detail_flex_span">深圳市宝安区创业二路宝路商务中心503</span>
+            </div>
+        </div>
+        <div class="detail_warpper">
+            <p class="detail_title">收件人</p>
+            <div class="detail_item">
+                <span>姓名：</span>
+                <span>赵日天</span>
+            </div>
+            <div class="detail_item">
+                <span>手机：</span>
+                <span>123745454545</span>
+            </div>
+            <div class="detail_item detail_flex">
+                <span>联系地址：</span>
+                <span class="detail_flex_span">深圳市宝安区创业二路宝路商务中心503</span>
+            </div>
+        </div>
+        <div class="detail_other">
+            <div class="other_info">
+                <p class="detail_title">其他信息</p>
+                <div class="other_flex">
+                    <div>
+                        <span>寄付方式：</span>
+                        <span>到付</span>
+                    </div>
+                    <div>
+                        <span>增值服务：</span>
+                        <span>不保值</span>
+                    </div>
+                </div>
+                <div class="other_flex">
+                    <div>
+                        <span>物品信息：</span>
+                        <span>文件*2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

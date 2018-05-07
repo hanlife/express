@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class SendInfo extends Component {
   render() {
     let sendData = this.props.sendData;
-    if (!sendData) {
+    if (JSON.stringify(sendData)==="{}") {
       return <p className="send_item_des">请输入寄件人信息</p>;
     } else {
       return (
