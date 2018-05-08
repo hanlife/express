@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, InputItem, Toast, Button } from "antd-mobile";
+import { List, InputItem, Toast, Button,WingBlank,WhiteSpace  } from "antd-mobile";
 import { connect } from "react-redux";
 
 import {CheckSalesman} from '../../axios/api'
@@ -56,8 +56,10 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="">
-        {this.props.msg ? <p>{this.props.msg}</p> : null}
+      <div className="login_box">
+      <WhiteSpace size="xl" />
+      <WingBlank>
+      {this.props.msg ? <p>{this.props.msg}</p> : null}
         <List renderHeader={() => "登陆"}>
           <InputItem
             type="phone"
@@ -70,6 +72,7 @@ class Login extends Component {
           >
             手机号码
           </InputItem>
+          <WhiteSpace size="lg" />
           {/* <InputItem
             type="password"
             placeholder="请输入密码"
@@ -89,6 +92,8 @@ class Login extends Component {
             确认
           </Button>
         </List>
+      </WingBlank>
+       
       </div>
     );
   }
