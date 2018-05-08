@@ -302,3 +302,10 @@ i.type_active {
 .goodstype_item button.active {
     background-color: #E87019;
 }
+
+.placeholder{
+    font-size: 14px;
+    vertical-align: middle;
+    margin: 0 25px 0 5px;
+    color:#999999;
+}

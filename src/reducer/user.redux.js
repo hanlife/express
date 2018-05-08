@@ -1,4 +1,4 @@
-import { test } from "../axios/api";
+import { CheckSalesman } from "../axios/api";
 
 const ERROR = "ERROR";
 const SUCCESS = "SUCCESS";
@@ -42,13 +42,9 @@ function registerSuccess(data) {
 
 // action
 
-export function login({ phone, pwd }) {
-  if (!phone || !pwd) {
+export function login({ phone }) {
+  if (!phone) {
     return errMsg("请输入用户名或密码");
   }
-  return dispatch => {
-    test({ phone, pwd }).then(res => {
-      dispatch(registerSuccess({ phone, pwd }));
-    });
-  };
+  return registerSuccess({ phone })
 }

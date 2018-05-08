@@ -92,7 +92,6 @@
     text-align: left;
 }
 
-
 .address_item:last-child {
     margin-bottom: 0;
 }
@@ -109,6 +108,7 @@
 }
 
 .address_name {
+    display: inline-block;
     width: 180px;
     margin: 0 25px 0 5px;
     height: 44px;
@@ -119,7 +119,7 @@
     font-size: 16px;
 }
 
-.address_name[placeholder]{
+.address_name[placeholder] {
     font-size: 14px;
 }
 
@@ -164,12 +164,24 @@
     color: #fff;
 }
 
-.card_upload{
+.card_upload {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     bottom: 0;
     opacity: 0;
-    filter:alpha(opacity=0);
+    filter: alpha(opacity=0);
+}
+
+.address_item .am-textarea-item{
+    width: 180px;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 0;
+}
+.address_item .am-textarea-control textarea{
+    font-size: 14px;
+    color: #333;
+    padding-left: 5px;
 }
