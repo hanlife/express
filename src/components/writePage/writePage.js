@@ -185,6 +185,7 @@ class WritePage extends Component {
             <span className="address_title">详细地址:</span>
             <TextareaItem
               placeholder="请输入详细地址"
+              value={this.state.address}
               onChange={v => {
               this.handChage("address", v);
             }}
