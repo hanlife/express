@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from "react-redux";
 
 import DetailCmp from './detailCmp'
 
@@ -22,6 +23,7 @@ const orderDetail = {
     insuranceFlag: 0, //是否需要保价服务（0、不需要  1、需要）
 }
 
+@connect(state => state.orderLists)
 class DljDetail extends Component {
     constructor(props) {
         super(props)
@@ -30,7 +32,17 @@ class DljDetail extends Component {
         }
     }
     componentDidMount() {
-        this.setState({data: orderDetail})
+        let _t = this;
+        const Id = this.props.match.params.orderId
+        let lists = this.props.orderLists
+
+        for (let index = 0; index < lists.length; index++) {
+            if (lists[index].id === Id) {
+                _t.setState({data: lists[index]})
+                break
+            }
+        }
+        console.log(this.state)
     }
     render() {
         return (

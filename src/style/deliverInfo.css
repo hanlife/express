@@ -53,12 +53,12 @@
 }
 
 .send_item:first-child .send_item_des {
-    height: 69px;
     border-bottom: 1px solid #ededed;
 }
 
 .send_item_des {
     margin-left: 50px;
+    height: 69px;
     text-align: center;
     margin: 0 30px 0 60px;
 }
@@ -69,7 +69,7 @@
     right: 20px;
     display: inline-block;
     width: 11px;
-    height: 22x;
+    height: 22px;
     background: url("../images/icon-right.png") no-repeat;
     background-size: 100% 100%;
 }

@@ -38,44 +38,48 @@ const BJX = "赵|钱|孙|李|周|吴|郑|王|冯|陈|楮|卫|蒋|沈|韩|杨|朱
 // 第一步去除特殊字符，提取手机号
 export const AreaSplit = function (str) {
     return new Promise((resolve, reject) => {
-        let phone,
+        let phone = '',
             name,
             city,
             province,
             district,
-            address
+            address;
         let regx = /(1[3|4|5|6|7|8|9][\d]{9}|0[\d]{2,3}-[\d]{7,8}|400[-]?[\d]{3}[-]?[\d]{4})/g;
 
         str = str
             .replace(/[&|\\*^%$#!_@-]/g, "")
             .replace(/\s+/g, "");
+        // 判断是否有手机号
         let strLength = str.length
-        let phoneNums = str.match(regx);
-        if (phoneNums.length > 0) {
-            phone = phoneNums[0]
-        } else {
-            reject("请按提示规则粘贴内容")
-        }
-        let phoneIndex = str.indexOf(phone)
-        // 以电话号码为拆分
-        if ((strLength - phoneIndex !== 11) && phoneIndex !== 0) {
-            let AddressName = str.split(phone)
-            if (AddressName[0].length > AddressName[1].length) {
-                name = AddressName[1]
-            } else {
-                name = AddressName[0]
+        try {
+            let phoneNums = str.match(regx);
+            if (phoneNums === null) {
+                throw "请按提示规则粘贴内容";
             }
+            if (phoneNums.length > 0) {
+                phone = phoneNums[0]
+                let phoneIndex = str.indexOf(phone)
+                // 以电话号码为拆分
+                if ((strLength - phoneIndex !== 11) && phoneIndex !== 0) {
+                    let AddressName = str.split(phone)
+                    if (AddressName[0].length > AddressName[1].length) {
+                        name = AddressName[1]
+                    } else {
+                        name = AddressName[0]
+                    }
+                }
+            }
+            str = str.replace(phone, '')
+        } catch (error) {
+            console.log(error)
         }
-        str = str.replace(phone, '')
-        strLength = str.length
-        // str 姓名+地址
+
         getAddress({address: str}).then(res => {
             if (res.messageModel.code === 0) {
                 city = res.dataModel.city
                 province = res.dataModel.province
                 district = res.dataModel.district
                 let obj = getName(str, province, city, district)
-                console.log(obj)
                 resolve({
                     phone,
                     name: obj.name,
@@ -97,13 +101,14 @@ function getName(str, province, city, district) {
     let provinceIndex = str.indexOf(province)
     let cityIndex = str.indexOf(city)
     let districtIndex = str.indexOf(district)
+    try {
     if (provinceIndex === -1 && cityIndex === -1 && districtIndex === -1) 
         return {name: '', address: ''}
     // 地址在前，名字在后
     if (provinceIndex === 0 || cityIndex === 0 || districtIndex === 0) {
         // 根据百家姓
         let arr = BJX.split('|')
-        let BJX_Index
+        let BJX_Index = 2
         for (let i = 0; i < arr.length; i++) {
             if (str.lastIndexOf(arr[i]) > 0) {
                 BJX_Index = str.lastIndexOf(arr[i])
@@ -126,11 +131,9 @@ function getName(str, province, city, district) {
             name = name.slice(0, 2);
         }
     }
-    address = str
-        .replace(province, "")
-        .replace(city, "")
-        .replace(district, "")
-        .replace(name, "")
+    address = str.replace(province, "").replace(city, "").replace(district, "").replace(name, "")
+    } catch (error) {
+        return {name: '', address: ''}
+    }
     return {name: name, address: address}
 }
-

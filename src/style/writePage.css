@@ -185,3 +185,34 @@
     color: #333;
     padding-left: 5px;
 }
+
+.example_box{
+
+}
+.example_bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    opacity: 0.7;
+    /* filter: alpha(opacity=0.7); */
+    background-color: #000;
+    z-index: 99;
+}
+
+.img_box{
+    width: 300px;
+    height: 424px;
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    margin-top: -212px;
+    left: 32px;
+    font-size: 0;
+}
+
+.img_box img{
+     width: 300px;
+    height: 424px;
+}

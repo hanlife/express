@@ -1,12 +1,9 @@
-import { CheckSalesman } from "../axios/api";
 
 const ERROR = "ERROR";
 const SUCCESS = "SUCCESS";
 
 const initState = {
   phone: "",
-  pwd: "",
-  msg: ""
 };
 
 // reducer

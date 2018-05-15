@@ -1,3 +1,7 @@
+  .myExpress_box {
+      margin: 0 17px;
+  }
+
   .tabNav {
       display: flex;
       display: -webkit-flex;
@@ -13,6 +17,10 @@
       flex: 1;
       text-align: center;
       margin: 0 10px;
+  }
+
+  .tabNav .tab_item a {
+      color: #fff;
   }
 
   .tab_item.tab_active {
@@ -100,4 +108,18 @@
       line-height: 24px;
   }
 
- 
+  .orderList_box .am-list-view-scrollview {
+      border: 0 !important;
+  }
+
+  .orderList_box .am-list-body {
+      background: transparent;
+  }
+
+  .orderList_box .am-list-body::before {
+      height: 0!important;
+  }
+
+  .orderList_box .am-list-body::after {
+      height: 0!important;
+  }

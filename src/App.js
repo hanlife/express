@@ -39,7 +39,7 @@ if (
   );
 }
 
-console.log(store.getState());
+// console.log(store.getState());
 
 class App extends Component {
   render() {

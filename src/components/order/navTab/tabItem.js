@@ -4,16 +4,16 @@ import {Link} from "react-router-dom"
 // tab导航默认配置
 const TabList = [
     {
-        path: '/order/dlj',
+        path: '/build/order/dlj',
         name: '待揽件'
     }, {
-        path: '/order/dfk',
+        path: '/build/order/dfk',
         name: '待付款'
     }, {
-        path: '/order/psz',
+        path: '/build/order/psz',
         name: '配送中'
     }, {
-        path: '/order/yqs',
+        path: '/build/order/yqs',
         name: '已签收'
     }
 ]

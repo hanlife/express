@@ -18,7 +18,9 @@ axios
             console.log('Load complete !!!');
         }, true);
         if (config.method === 'post') {
-            config.data = qs.stringify(config.data);
+            if (qs.stringify(config.data)) {
+                config.data = qs.stringify(config.data);
+            }
         }
         return config;
     }, (error) => {

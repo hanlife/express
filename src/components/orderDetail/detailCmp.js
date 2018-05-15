@@ -5,6 +5,7 @@ import "../../style/orderDetail.css"
 class DetailCmp extends Component {
     render() {
         const data = this.props.data
+        console.log(data)
         if (JSON.stringify(this.props.data) === "{}") {
             return null
         }
@@ -31,15 +32,15 @@ class DetailCmp extends Component {
                     <p className="detail_title">寄件人</p>
                     <div className="detail_item">
                         <span>姓名：</span>
-                        <span>{data.clientName}</span>
+                        <span>{data.senderAddr.name}</span>
                     </div>
                     <div className="detail_item">
                         <span>手机：</span>
-                        <span>{data.phone}</span>
+                        <span>{data.senderAddr.telephone}</span>
                     </div>
                     <div className="detail_item detail_flex">
                         <span>联系地址：</span>
-                        <span className="detail_flex_span">{data.senderAddr}</span>
+                        <span className="detail_flex_span">{data.senderAddr.address}</span>
                     </div>
                 </div>
                 <div className="detail_warpper">
@@ -75,7 +76,7 @@ class DetailCmp extends Component {
                         <div className="other_flex">
                             <div>
                                 <span>物品信息：</span>
-                                <span>{`${data.goodsInfo.goodName}*${data.goodsInfo.qty}`}</span>
+                                <span>{`${data.goodsInfos[0].goodsName}*${data.goodsInfos[0].qty}`}</span>
                             </div>
                         </div>
                     </div>

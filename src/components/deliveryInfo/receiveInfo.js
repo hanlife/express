@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 class ReceiveInfo extends Component {
   render() {
@@ -7,7 +7,19 @@ class ReceiveInfo extends Component {
       return <p className="send_item_des">请输入收件人信息</p>;
     } else {
       return (
-        <p className="send_item_des txt_hid item_active">{receiveData.name} {receiveData.phone} {receiveData.shq} {receiveData.address}</p>
+        <p
+          className="send_item_des txt_hid item_active"
+          style={{
+          display: 'table'
+        }}>
+          <span
+            style={{
+            display: "table-cell",
+            verticalAlign: "middle",
+            lineHeight: "20px",
+            whiteSpace: "initial"
+          }}>{receiveData.name} {receiveData.telephone} {receiveData.provinceName}{receiveData.cityName}{receiveData.countyName} {receiveData.address}</span>
+        </p>
       );
     }
   }

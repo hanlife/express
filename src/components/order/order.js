@@ -23,11 +23,11 @@ class myExpress extends Component {
                 <TabItem/>
                 <OrderList>
                     <Switch>
-                        <Route path="/order/dlj" component={dlj}/>
-                        <Route path="/order/dfk" component={dfk}/>
-                        <Route path="/order/yqs" component={yqs}/>
-                        <Route path="/order/psz" component={psz}/>
-                        <Redirect from='*' to='/order/dlj'/>
+                        <Route path="/build/order/dlj" component={dlj}/>
+                        <Route path="/build/order/dfk" component={dfk}/>
+                        <Route path="/build/order/yqs" component={yqs}/>
+                        <Route path="/build/order/psz" component={psz}/>
+                        <Redirect from='*' to='/build/order/dlj'/>
                     </Switch>
                 </OrderList>
             </div>

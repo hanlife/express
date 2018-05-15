@@ -1,35 +1,19 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
 import {PullToRefresh, ListView} from 'antd-mobile'
+import {getOrderSendList} from '../../../axios/api'
+import {connect} from "react-redux";
+import {orderData} from "../../../reducer/orderLists.redux";
 
 import OrderItem from '../orderItem'
 
-// 模拟数据
-const data = [
-    {
-        time: '下单时间 2018-03-16 12:30:30',
-        jijian: '赵日天',
-        delv: '赵日狗',
-        fadi: '宝安区',
-        shoudi: '罗湖区',
-        orderId: 'wx124654654'
-    }, {
-        time: '下单时间 2018-03-17 12:30:30',
-        jijian: '赵天',
-        delv: '赵狗',
-        fadi: '宝安区',
-        shoudi: '罗湖区',
-        orderId: 'wx1246243454654'
-    }, {
-        time: '下单时间 2018-03-16 12:30:30',
-        jijian: '赵日天',
-        delv: '赵日狗',
-        fadi: '宝安区',
-        shoudi: '罗湖区',
-        orderId: 'wx124654654'
-    }
-]
+const initParms = {
+    currentPage: 1,
+    pageSize: 5,
+    order_state: "DLJ"
+}
 
+@connect(state => state.orderLists, {orderData})
 class dlj extends Component {
     constructor(props) {
         super(props);
@@ -39,6 +23,7 @@ class dlj extends Component {
 
         this.state = {
             data: [],
+            hasMore: true,
             dataSource,
             refreshing: true,
             isLoading: true,
@@ -55,26 +40,58 @@ class dlj extends Component {
     }
 
     componentDidMount() {
-       const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-
-        setTimeout(() => {
-            this.rData = data.concat(data);
-            this.setState({
-                dataSource: this
-                    .state
-                    .dataSource
-                    .cloneWithRows(data),
-                height: hei,
-                refreshing: false,
-                isLoading: false
-            });
-        }, 500);
+        const hei = this.state.height - ReactDOM
+            .findDOMNode(this.lv)
+            .offsetTop;
+        this.setState({height: hei});
+        initParms.phone = localStorage.getItem("phone")
+        this.Ajax(initParms)
     }
-
+    FormatList(list) {
+        return list.map(v => {
+            v.goodsInfos = JSON.parse(v.goodsInfos)
+            v.receiverAddr = JSON.parse(v.receiverAddr)
+            v.senderAddr = JSON.parse(v.senderAddr)
+            return v
+        })
+    }
+    Ajax(parms) {
+        getOrderSendList(parms).then(res => {
+            if (res.messageModel.code === 0) {
+                let items = this.FormatList(res.rows)
+                let hasMore = items.length > 0
+                    ? true
+                    : false
+                let totleList
+                if (parms.currentPage !== 1) {
+                    totleList = this
+                        .state
+                        .data
+                        .concat(items)
+                } else {
+                    totleList = items
+                }
+                this.setState({
+                    data: totleList,
+                    dataSource: this
+                        .state
+                        .dataSource
+                        .cloneWithRows(totleList),
+                    refreshing: false,
+                    isLoading: false,
+                    hasMore: hasMore
+                });
+                this
+                    .props
+                    .orderData(totleList)
+            }
+        })
+    }
     onRefresh = () => {
         this.setState({refreshing: true, isLoading: true});
         // simulate initial Ajax
-        console.log("onRefresh")
+        initParms.currentPage = 1
+        this.Ajax(initParms)
 
     };
     onEndReached = (event) => {
@@ -84,23 +101,20 @@ class dlj extends Component {
             return;
         }
         this.setState({isLoading: true});
+        initParms.currentPage++;
+        this.Ajax(initParms)
     };
     render() {
-        const separator = (sectionID, rowID) => (<div
-            key={`${sectionID}-${rowID}`}
-            style={{
-            backgroundColor: '#F5F5F9',
-            height: 12,
-            borderTop: '1px solid #ECECED',
-            borderBottom: '1px solid #ECECED'
+        const {data} = this.state
+        const separator = (sectionID, rowID) => (<div key={`${sectionID}-${rowID}`} style={{
+            height: 12
         }}/>);
-        let index = data.length - 1;
+        let index = this.state.data.length - 1;
         const row = (rowData, sectionID, rowID) => {
             if (index < 0) {
                 index = data.length - 1;
             }
             const obj = data[index--];
-            console.log(rowData,sectionID,rowID)
             return (<OrderItem data={obj} key={index}/>);
         };
 
@@ -116,7 +130,8 @@ class dlj extends Component {
                     <div
                         style={{
                         padding: 15,
-                        textAlign: 'center'
+                        textAlign: 'center',
+                        color: '#ffffff'
                     }}>
                         {this.state.isLoading
                             ? 'Loading...'
@@ -140,7 +155,7 @@ class dlj extends Component {
                     this.onRefresh
                 } />}
                     onEndReached={this.onEndReached}
-                    pageSize={1}></ListView>
+                    pageSize={5}></ListView>
             </div>
         )
     }

@@ -1,4 +1,3 @@
-import {test} from "../axios/api";
 
 // type SHOWTYPE:物品类型，寄付方式，增值服务  ORDER_SEND：寄件人信息  ORDER_RECEIVE：收件人信息
 // INSURANCEFLAG：是否保价 PAYTYPE：支付方式
@@ -12,10 +11,6 @@ const ORDER_RECEIVEAREA = "ORDER_RECEIVEAREA"
 const INSURANCEFLAG = "INSURANCEFLAG";
 const PAYTYPE = "PAYTYPE";
 const GOODSINFOS = "GOODSINFOS"
-
-function errMsg(msg) {
-  return {msg, type: ERROR};
-}
 
 // a 寄件人信息。b 收件人信息
 function registerData(data) {
@@ -109,7 +104,7 @@ export const orderInfo = (state = intState, action) => {
 // action
 export function getReceiveData({
   name,
-  phone,
+  telephone,
   provinceName,
   cityName,
   countyName,
@@ -118,7 +113,7 @@ export function getReceiveData({
 }) {
   return registerData({
     name,
-    phone,
+    telephone,
     provinceName,
     cityName,
     countyName,
