@@ -41,3 +41,13 @@ export function bcOcr(params) {
 export function getOrderSendList(params) {
   return fetch(COURIER+'getOrderSendList',params)
 }
+
+// 取消订单
+export function cancelOrder(params) {
+  return fetch(COURIER+'cancelOrder',params)
+}
+
+// 支付订单
+export function sendOrderPay(params) {
+  return fetch(COURIER+'sendOrderPay',params)
+}

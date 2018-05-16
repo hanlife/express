@@ -1,9 +1,9 @@
 const ORDERDETAIL = "ORDERDETAIL"
-const PAYARRY = "PAYARRY"
 
 const initState = {
     orderLists: [],
-    payArry: []
+    payArry: [],
+    totle: 0
 };
 
 // reducer
@@ -12,12 +12,8 @@ export const orderLists = (state = initState, action) => {
         case ORDERDETAIL:
             return {
                 ...state,
-                orderLists: action.orderLists
-            };
-        case PAYARRY:
-            return {
-                ...state,
-                payArry: action.payArry
+                orderLists: action.orderLists,
+                totle: action.totle
             };
         default:
             return {
@@ -29,27 +25,39 @@ export const orderLists = (state = initState, action) => {
 // action
 
 export function orderData(data) {
-    return {
-        type: ORDERDETAIL,
-        orderLists: data.map(v => {
+    let totle = 0
+    let lists = data.map(v => {
+        if (v.checked === null) {
             v.checked = false;
-            return v
-        })
-    };
-}
-
-export function pushPay(payArry) {
-    return {type: PAYARRY, payArry: payArry};
+        } else {
+            if (v.checked) 
+                totle += v.deliveryMoney
+        }
+        return v
+    })
+    return {type: ORDERDETAIL, orderLists: lists, totle: totle};
 }
 
 export function checked(id, data) {
-    return {
-        type: ORDERDETAIL,
-        orderLists: data.map(v => {
-            if (id === v.id) {
-                v.checked = !v.checked
-            };
-            return v
-        })
-    };
+    let totle = 0
+    let lists = data.map(v => {
+        if (id === v.id) {
+            v.checked = !v.checked
+        };
+        if (v.checked) 
+            totle += v.deliveryMoney
+        return v
+    })
+    return {type: ORDERDETAIL, orderLists: lists, totle: totle};
+}
+
+export function AllChecked(data, bool) {
+    let totle = 0
+    let lists = data.map(v => {
+        v.checked = bool
+        if (bool) 
+            totle += v.deliveryMoney
+        return v
+    })
+    return {type: ORDERDETAIL, orderLists: lists, totle: totle};
 }

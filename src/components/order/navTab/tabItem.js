@@ -17,13 +17,20 @@ const TabList = [
         name: '已签收'
     }
 ]
-
 class TabItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
             current: 0
         };
+    }
+    componentWillMount() {
+        let _t = this;
+        TabList.forEach((v, i) => {
+            if (v.path === window.location.pathname) {
+                _t.setState({current: i})
+            }
+        });
     }
     itemNav = (index) => {
         return index === this.state.current

@@ -20,7 +20,7 @@ class myExpress extends Component {
     render() {
         return (
             <div className="myExpress_box">
-                <TabItem/>
+                <TabItem />
                 <OrderList>
                     <Switch>
                         <Route path="/build/order/dlj" component={dlj}/>

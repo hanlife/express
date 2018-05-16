@@ -1,0 +1,48 @@
+.login_box{
+    width: 100%;
+    height: 100vh;
+    background: url("../images/img_login_bg.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.login_logo{
+    width: 202px;
+    height: 55px;
+    display: block;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+.login_from{
+    margin: 0 68px;
+}
+
+.icon_phone{
+    width:20px;
+    height:31px;
+    background:url('../images/icon_phone.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.login_from .am-list-item{
+    background-color:transparent;
+}
+
+.login_from .am-list-item.am-input-item{
+    padding-left: 0;
+}
+.login_from .am-list-item .am-input-label.am-input-label-5{
+    width: 45px;
+}
+
+.login_from .am-button.am-button-primary{
+    background-color: transparent;
+}
+
+.login_from  .am-list-item .am-input-control input{
+    color:#fff;
+}
+
+.login_from .am-button.am-button-primary::before{
+    border-color:#fff!important;
+}

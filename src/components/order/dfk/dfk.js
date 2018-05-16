@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom';
-import {PullToRefresh, ListView} from 'antd-mobile'
+import {PullToRefresh, ListView, Checkbox} from 'antd-mobile'
 import {getOrderSendList} from '../../../axios/api'
 import {connect} from "react-redux";
-import {orderData} from "../../../reducer/orderLists.redux";
+import {orderData,AllChecked} from "../../../reducer/orderLists.redux";
 
 import OrderItem from '../orderItem'
 
@@ -13,7 +13,7 @@ const initParms = {
     order_state: "DFK"
 }
 
-@connect(state => state.orderLists, {orderData})
+@connect(state => state.orderLists, {orderData,AllChecked})
 class dfk extends Component {
     constructor(props) {
         super(props);
@@ -27,8 +27,9 @@ class dfk extends Component {
             dataSource,
             refreshing: true,
             isLoading: true,
-            height: document.documentElement.clientHeight,
-            useBodyScroll: false
+            height: document.documentElement.clientHeight - 50,
+            useBodyScroll: false,
+            checked:false
         };
     }
     componentDidUpdate() {
@@ -37,6 +38,9 @@ class dfk extends Component {
         } else {
             document.body.style.overflow = 'hidden';
         }
+    }
+    componentWillUnmount() {
+       initParms.currentPage = 1
     }
 
     componentDidMount() {
@@ -79,7 +83,8 @@ class dfk extends Component {
                         .cloneWithRows(totleList),
                     refreshing: false,
                     isLoading: false,
-                    hasMore: hasMore
+                    hasMore: hasMore,
+                    checked:false
                 });
                 this
                     .props
@@ -104,6 +109,14 @@ class dfk extends Component {
         initParms.currentPage++;
         this.Ajax(initParms)
     };
+    onChange() {
+        console.log(this.props)
+        this.setState({
+            checked:!this.state.checked
+        })
+        this.props.AllChecked(this.props.orderLists,!this.state.checked)
+    }
+    pay() {}
     render() {
         const {data} = this.state
         const separator = (sectionID, rowID) => (<div key={`${sectionID}-${rowID}`} style={{
@@ -156,6 +169,27 @@ class dfk extends Component {
                 } />}
                     onEndReached={this.onEndReached}
                     pageSize={5}></ListView>
+                <div className="dlj_foot">
+                    <div className="foot_item">
+                        <Checkbox checked={this.state.checked} onChange={() => this.onChange()}>
+                            <span
+                                style={{
+                                marginLeft: '10px'
+                            }}>全选</span>
+                        </Checkbox>
+                    </div>
+                    <div className="foot_item">
+                        <span>共计</span>
+                        <span className="font-red">￥{this.props.totle}</span>
+                    </div>
+                    <div className="foot_item">
+                        <div
+                            className="pay_btn"
+                            onClick={() => {
+                            this.pay()
+                        }}>支付</div>
+                    </div>
+                </div>
             </div>
         )
     }

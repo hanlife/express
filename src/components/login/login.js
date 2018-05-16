@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import {
-  List,
   InputItem,
   Toast,
   Button,
-  WingBlank,
-  WhiteSpace
 } from "antd-mobile";
 import {connect} from "react-redux";
+
+import '../../style/login.css'
+import Login_logo from "../../images/img_login_logo.png"
 
 import {CheckSalesman} from '../../axios/api'
 import {login} from "../../reducer/user.redux";
@@ -65,46 +65,28 @@ class Login extends Component {
   render() {
     return (
       <div className="login_box">
-        <WhiteSpace size="xl"/>
-        <WingBlank>
-          {this.props.msg
-            ? <p>{this.props.msg}</p>
-            : null}
-          <List renderHeader={() => "登陆"}>
-            <InputItem
-              type="phone"
-              placeholder="请输入手机号"
-              onChange={v => {
-              this.onChange("phone", v);
-            }}
-              error={this.state.hasError}
-              onErrorClick={this.onErrorClick}>
-              手机号码
-            </InputItem>
-            <WhiteSpace size="lg"/> {/* <InputItem
-            type="password"
-            placeholder="请输入密码"
+        <img src={Login_logo} alt="logo" className="login_logo"/>
+        <div className="login_from">
+          <InputItem
+            type="phone"
+            placeholder="请输入手机号"
             onChange={v => {
-              this.onChange("pwd", v);
-            }}
-          >
-            密码
-          </InputItem> */}
-            <WingBlank>
-              <Button
-                type="primary"
-                disabled={this.state.hasError}
-                onClick={() => {
-                this.submit();
-              }}>
-                确认
-              </Button>
-            </WingBlank>
-            <WhiteSpace size="sm"/>
-          </List>
-
-        </WingBlank>
-
+            this.onChange("phone", v);
+          }}
+            error={this.state.hasError}
+            onErrorClick={this.onErrorClick}>
+            <div className="icon_phone"></div>
+          </InputItem>
+          <div style={{height:"50px"}}></div>
+          <Button
+            type="primary"
+            disabled={this.state.hasError}
+            onClick={() => {
+            this.submit();
+          }}>
+            确认
+          </Button>
+        </div>
       </div>
     );
   }

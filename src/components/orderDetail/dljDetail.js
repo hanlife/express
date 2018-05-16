@@ -1,34 +1,17 @@
 import React, {Component} from 'react'
+import {Toast} from "antd-mobile";
 import {connect} from "react-redux";
+import {cancelOrder} from '../../axios/api'
 
 import DetailCmp from './detailCmp'
-
-const orderDetail = {
-    clientName: '王XX', // 寄件人姓名
-    phone: '13760315374', //寄件人手机号
-    senderAddr: '寄件地址深圳市宝安区XXX', // 联系地址
-    receiverAddr: {
-        address: '收件人地址深圳市罗湖区XXX',
-        cityName: '深圳市',
-        countyName: '罗湖区',
-        name: '罗小风',
-        provinceName: '广东省',
-        telephone: '1554546456564'
-    },
-    goodsInfo: { // 物品信息
-        goodName: '文件',
-        qty: 2
-    },
-    payType: 1, // 支付方式（1、到付 2、在线支付 3、现金  4、寄付（月结））
-    insuranceFlag: 0, //是否需要保价服务（0、不需要  1、需要）
-}
 
 @connect(state => state.orderLists)
 class DljDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: {}
+            data: {},
+            orderId: ''
         }
     }
     componentDidMount() {
@@ -38,16 +21,38 @@ class DljDetail extends Component {
 
         for (let index = 0; index < lists.length; index++) {
             if (lists[index].id === Id) {
-                _t.setState({data: lists[index]})
+                _t.setState({data: lists[index], orderId:lists[index].waybillCode})
                 break
             }
         }
         console.log(this.state)
     }
+    closeOrder() {
+        let _t = this
+        cancelOrder({waybillCode: this.state.orderId}).then(res => {
+            if (res.messageModel.code === 0) {
+                Toast
+                    .success("订单取消成功", 2, function () {
+                        _t.props.history.push("/build/order/dlj");
+                    }, true)
+            } else {
+                Toast.fail(res.messageModel.messageText, 4);
+            }
+        })
+    }
     render() {
         return (
-            <div className=''>
+            <div className='dljDetail_box'>
                 <DetailCmp data={this.state.data}></DetailCmp>
+                <div className="dlj_foot">
+                    <div className="foot_item">
+                        <div
+                            className="pay_btn"
+                            onClick={() => {
+                            this.closeOrder()
+                        }}>取消订单</div>
+                    </div>
+                </div>
             </div>
         )
 

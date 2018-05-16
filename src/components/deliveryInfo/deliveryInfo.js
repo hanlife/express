@@ -61,13 +61,13 @@ class deliveryInfo extends Component {
       if (JSON.stringify(receiveData)==="{}") {
         error += "收件人信息、"
       }
-      if (!paytype) {
+      if (paytype === null) {
         error += "寄付方式"
       }
       if (!goodsInfos.goodsName) {
         error += "物品类型、"
       }
-      if (!insuranceFlag) {
+      if (insuranceFlag === null) {
         error += "增值服务、"
       }
       if (error !== '') {
