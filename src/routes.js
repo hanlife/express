@@ -13,6 +13,7 @@ import courier from "./components/orderDetail/courier";
 import dfkDetail from "./components/orderDetail/dfkDetail";
 import dljDetail from "./components/orderDetail/dljDetail";
 import payDetail from "./components/orderDetail/payDetail";
+import Evaluate from './components/evaluate/evaluate'
 
 import Protocol from "./components/protocol/protocol"
 import page404 from "./components/errorPage/page404";
@@ -33,8 +34,9 @@ class CRouter extends Component {
           <Route path="/build/courier/:orderId" component={courier}/>
           <Route path="/build/dfkDetail/:orderId" component={dfkDetail}/>
           <Route path="/build/dljDetail/:orderId" component={dljDetail}/>
-          <Route path="/build/payDetail/:orderId" component={payDetail}/>
+          <Route path="/build/payDetail" component={payDetail}/>
           <Route path="/build/protocol" component={Protocol}/>
+          <Route path="/build/evaluate" component={Evaluate}/>
           <Route path="/build/404" component={page404}/>
           <Redirect from="*" to="/build"/>
         </Switch>

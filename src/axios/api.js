@@ -51,3 +51,14 @@ export function cancelOrder(params) {
 export function sendOrderPay(params) {
   return fetch(COURIER+'sendOrderPay',params)
 }
+
+// 物流详情
+export function queryTraceInfo(params) {
+  return fetch(COURIER+'queryTraceInfo',params)
+}
+
+// 订单信息
+export function getSendInfo(params) {
+  return fetch(COURIER+'getSendInfo',params)
+}
+

@@ -13,7 +13,8 @@ class OrderItem extends Component {
             order_state_str,
             order_state,
             receiverAddr,
-            senderAddr
+            senderAddr,
+            waybillCode,
         } = this.props.data
         const receiverName = receiverAddr.name
         const receiverCountyName = receiverAddr.countyName
@@ -29,10 +30,10 @@ class OrderItem extends Component {
                 Url = `/build/dfkDetail/${id}`
                 break;
             case "PSZ":
-                Url = `/build/courier/${id}`
+                Url = `/build/courier/${waybillCode}`
                 break;
             case "YQS":
-                Url = `/build/courier/${id}`
+                Url = `/build/courier/${waybillCode}`
                 break;
             default:
                 break;
