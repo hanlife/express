@@ -4,9 +4,11 @@ import '../../style/courier.css'
 import banner from '../../images/img-banner.png'
 import person from '../../images/icon-person.png'
 import phone from '../../images/icon-phone.png'
+import evaluate from '../../images/icon-evaluate.png'
 
 import {queryTraceInfo, getSendInfo} from '../../axios/api'
 import {Toast} from 'antd-mobile';
+import {Link} from 'react-router-dom';
 
 function CourierDetail(props) {
     if (props.data.length === 0) {
@@ -21,7 +23,9 @@ function CourierDetail(props) {
         )
     } else {
         return (
-            <div>{props.data.forEach(v => {
+            <div>{props
+                    .data
+                    .forEach(v => {
                         return (
                             <div className="item">
                                 <div className="left">
@@ -98,6 +102,16 @@ class Courier extends Component {
                                 <p className="info-txt" id="deliveryman">快递员：{sendInfo.deliveryman}</p>
                             </a>
                         </div>
+                        {sendInfo.order_state === "YQS"
+                            ? (
+                                <div className="info-flex">
+                                    <Link to="/build/evaluate">
+                                        <img src={evaluate} alt="" className="courier-evaluate"/>
+                                        <p className="info-txt" id="deliveryman">评价</p>
+                                    </Link>
+                                </div>
+                            )
+                            : (null)}
                     </div>
                 </div>
                 <div className="desc_box">

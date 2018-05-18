@@ -116,7 +116,9 @@ class dfk extends Component {
         })
         this.props.AllChecked(this.props.orderLists,!this.state.checked)
     }
-    pay() {}
+    pay() {
+       this.props.history.push('/build/payDetail')
+    }
     render() {
         const {data} = this.state
         const separator = (sectionID, rowID) => (<div key={`${sectionID}-${rowID}`} style={{

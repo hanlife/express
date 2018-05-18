@@ -1,45 +1,34 @@
 import React from 'react'
+import Rate from './rate'
+import {TextareaItem,Button} from 'antd-mobile';
 
 import '../../style/evaluate.css'
 
-
 class Evaluate extends React.Component {
-    static defaultProps = {
-        canClick: true,
-        rateNum: 5,
-        handleSelectRate: null,
-        rateValue: 0
-    }
 
-    constructor (props) {
-        super(props)
-        this.state = {
-            rateValue: 0,
-            rateArray: new Array(Number(props.rateNum)).fill('')
-        }
-    }
-
-    handleSelectRate (value) {
-        if (!this.props.canClick) {
-            return
-        }
-        this.setState({
-            rateValue: value
-        })
-        console.log(value)
-        this.props.handleSelectRate && this.props.handleSelectRate(value)
-    }
-
-    render () {
-        const {rateArray, rateValue} = this.state
-        const {rateNum} = this.props
+    render() {
         return (
-            <div className="rate">
-                <div className="rate__bg">
-                    {rateArray.map((item, index) => <span onClick={() => this.handleSelectRate(index+1)} key={`rate_${index}`}>☆</span>)}
-                    <div className="bg__realrate" style={{width: `calc(${rateValue ? rateValue : this.props.rateValue} / ${rateNum} * 100%)`}}>
-                        {rateArray.map((item, index) => <span onClick={() => this.handleSelectRate(index+1)} key={`rate_selected_${index}`}>★</span>)}
+            <div className="evaluate_box">
+                <div className="evaluate_item">
+                <TextareaItem placeholder="尽情抒发情感吧···" rows={6}  clear/>
+                </div>
+                <div className="evaluate_item">
+                    <div className="eva_titel"><span className="icon-evaluate"></span><span>整体评价</span></div>
+                    <div className="eva_lists">
+                        <div className="eva_list_title">服务态度</div>
+                        <div className="eva_rate"><Rate></Rate></div>
                     </div>
+                    <div className="eva_lists">
+                        <div className="eva_list_title">物流速度</div>
+                        <div className="eva_rate"><Rate></Rate></div>
+                    </div>
+                    <div className="eva_lists">
+                        <div className="eva_list_title">快递员</div>
+                        <div className="eva_rate"><Rate></Rate></div>
+                    </div>
+                </div>
+                <div className="eva_btn">
+                    <Button style={{backgroundColor:"#e87019",height:'44px',borderRadius:'44px',color:'#fff'}}>发表评价</Button>
                 </div>
             </div>
         )

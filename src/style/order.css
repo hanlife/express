@@ -21,6 +21,7 @@
 
   .tabNav .tab_item a {
       color: #fff;
+      display: block;
   }
 
   .tab_item.tab_active {
@@ -34,7 +35,7 @@
 
   .orderList {
       overflow: hidden;
-      width: 340px;
+      /* width: 340px; */
       margin: 0 auto;
   }
 
@@ -146,6 +147,7 @@
   .dlj_foot .pay_btn {
       background-color: #e87019;
       color: #fff;
+      text-align: center;
   }
   .dlj_foot .close_btn{
       background-color: #cccccc;

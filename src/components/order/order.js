@@ -16,11 +16,14 @@ class myExpress extends Component {
     componentWillMount() {
         console.log(this.props)
     }
+    componentWillUnmount() {
+        document.getElementsByTagName('body')[0].style.overflow = 'initial'
+    }
 
     render() {
         return (
             <div className="myExpress_box">
-                <TabItem />
+                <TabItem/>
                 <OrderList>
                     <Switch>
                         <Route path="/build/order/dlj" component={dlj}/>

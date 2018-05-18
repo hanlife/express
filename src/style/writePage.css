@@ -3,9 +3,9 @@
 }
 
 .address_warpper {
-    width: 340px;
+    /* width: 340px; */
+    margin: 0 15px;
     height: 88px;
-    margin: 0 auto;
     background: rgba(255, 255, 255, 1);
     border-radius: 5px;
     overflow: hidden;
@@ -79,8 +79,8 @@
 }
 
 .address_from {
-    width: 320px;
-    margin: 0 auto;
+    /* width: 320px; */
+    margin: 0 15px;
 }
 
 .address_item {
@@ -109,7 +109,7 @@
 
 .address_name {
     display: inline-block;
-    width: 180px;
+    /* width: 180px; */
     margin: 0 25px 0 5px;
     height: 44px;
     line-height: 44px;

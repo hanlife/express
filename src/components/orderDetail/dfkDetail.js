@@ -1,17 +1,18 @@
 import React, {Component} from 'react'
 import {Toast} from "antd-mobile";
 import {connect} from "react-redux";
-import {cancelOrder,sendOrderPay} from '../../axios/api'
+import {cancelOrder} from '../../axios/api'
+import {checked} from '../../reducer/orderLists.redux'
 
 import DetailCmp from './detailCmp'
 
-@connect(state => state.orderLists)
+@connect(state => state.orderLists, {checked})
 class DfkDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
             data: {},
-            orderId:''
+            orderId: ''
         }
     }
     componentDidMount() {
@@ -21,14 +22,14 @@ class DfkDetail extends Component {
 
         for (let index = 0; index < lists.length; index++) {
             if (lists[index].id === Id) {
-                _t.setState({data: lists[index],orderId:lists[index].waybillCode})
+                _t.setState({data: lists[index], orderId: lists[index].waybillCode})
                 break
             }
         }
-        console.log(this.state)
+        this.props.checked(Id, this.props.orderLists)
     }
     pay() {
-        sendOrderPay()
+        this.props.history.push('/build/payDetail')
     }
     closeOrder() {
         let _t = this
@@ -36,7 +37,10 @@ class DfkDetail extends Component {
             if (res.messageModel.code === 0) {
                 Toast
                     .success("订单取消成功", 2, function () {
-                        _t.props.history.push("/build/order/dfk");
+                        _t
+                            .props
+                            .history
+                            .push("/build/order/dfk");
                     }, true)
             } else {
                 Toast.fail(res.messageModel.messageText, 4);
@@ -49,7 +53,11 @@ class DfkDetail extends Component {
             <div className='dfkDetail_box'>
                 <DetailCmp data={this.state.data}></DetailCmp>
                 <div className="dlj_foot">
-                    <div className="foot_item" style={{fontSize:'14px'}}>
+                    <div
+                        className="foot_item"
+                        style={{
+                        fontSize: '14px'
+                    }}>
                         <span>快递费</span>
                         <span className="font-red">￥{deliveryMoney}</span>
                     </div>

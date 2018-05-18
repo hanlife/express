@@ -11,8 +11,8 @@
 }
 
 .form_warrper {
-    width: 340px;
-    margin: 0 auto;
+    /* width: 340px; */
+    margin: 0 17px;
 }
 
 .send_items {
@@ -113,7 +113,7 @@ i.type_active {
 }
 
 .send_submit {
-    width: 300px;
+    /* width: 300px; */
     height: 44px;
     line-height: 44px;
     margin: 0 auto;

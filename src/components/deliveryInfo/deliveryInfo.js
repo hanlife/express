@@ -211,6 +211,7 @@ class deliveryInfo extends Component {
               </button>
             </div>
           </div>
+          <div style={{height:"20px"}}></div>
           <div>{cmp}</div>
         </div>
       );
